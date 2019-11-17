@@ -1,0 +1,12 @@
+zad1: 114
+zad2: 181
+moc 1 381
+moc 2 344
+moc 3 171
+moc 4 76
+moc 5 22
+moc 6 4
+moc 7 0
+moc 8 2
+minimalna liczba o mocy 1 :11
+maksymalna liczba o mocy 1 :999342708
