@@ -1,0 +1,2 @@
+zad1: ilosc rewersow:0
+zad2: ilosc rekurencyjnych: 199
