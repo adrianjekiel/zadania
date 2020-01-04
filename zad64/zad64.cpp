@@ -149,6 +149,9 @@ void zapisz (const string& nazwa, const vector<string>& string_vec)
         output.close();
     }
 }
+
+
+
 vector<string> zad3 (const vector<Obraz>& obrazy)
 {
     vector<string> odp;
@@ -169,7 +172,6 @@ vector<string> zad3 (const vector<Obraz>& obrazy)
                     czarne++;
                 }
             }
-            cout<<"czarne w: "<<czarne<<" bw: "<<obraz.b_wiersz[w]<<endl;
             if(czarne%2==0 and obraz.b_kolumna[w]==1 or czarne%2!=0 and obraz.b_kolumna[w]==0)
             {
                 zle_w++;
@@ -185,7 +187,6 @@ vector<string> zad3 (const vector<Obraz>& obrazy)
                     czarne++;
                 }
             }
-            cout<<"czarne k: "<<czarne<<" bk: "<<obraz.b_kolumna[k]<<endl;
 
             if(czarne%2==0 and obraz.b_wiersz[k]==1 or czarne%2!=0 and obraz.b_wiersz[k]==0)
             {
@@ -205,7 +206,6 @@ vector<string> zad3 (const vector<Obraz>& obrazy)
         {
             poprawny++;
         }
-        cout<<zle_w<<" "<<zle_k<<endl;
 
     }
     odp.push_back("zad3: ");
@@ -214,6 +214,139 @@ vector<string> zad3 (const vector<Obraz>& obrazy)
     odp.push_back("liczba obrazow nienaprawialnych: " + to_string(nienaprawialny));
     return odp;
 
+}
+int ile_zlych_bitow_wiersz(const Obraz& obraz)
+{
+        int zle_w=0;
+        for(int w=0; w<20 ;w++)//wiersz
+        {
+            int czarne=0;
+            for(int k=0;k<20;k++)
+            {
+                if(obraz.obraz[w][k])
+                {
+                    czarne++;
+                }
+            }
+            if(czarne%2==0 and obraz.b_kolumna[w]==1 or czarne%2!=0 and obraz.b_kolumna[w]==0)
+            {
+                zle_w++;
+            }
+        }
+        return zle_w;
+}
+int ile_zlych_bitow_kolumna(const Obraz& obraz)
+{
+    int zle_k=0;
+    for(int k=0; k<20 ;k++)//wiersz
+    {
+        int czarne=0;
+        for(int w=0;w<20;w++)
+        {
+            if(obraz.obraz[w][k])
+            {
+                czarne++;
+            }
+        }
+        if(czarne%2==0 and obraz.b_wiersz[k]==1 or czarne%2!=0 and obraz.b_wiersz[k]==0)
+        {
+            zle_k++;
+        }
+    }
+    return zle_k;
+}
+
+int indeks_zlego_bitu_wiersz(const Obraz& obraz)
+{
+    int zle_w=0;
+    for(int w=0; w<20 ;w++)//wiersz
+    {
+        int czarne=0;
+        for(int k=0;k<20;k++)
+        {
+            if(obraz.obraz[w][k])
+            {
+                czarne++;
+            }
+        }
+        if(czarne%2==0 and obraz.b_kolumna[w]==1 or czarne%2!=0 and obraz.b_kolumna[w]==0)
+        {
+            return w;
+        }
+    }
+    return -1;
+}
+
+int indeks_zlego_bitu_kolumna(const Obraz& obraz)
+{
+    int zle_k=0;
+    for(int k=0; k<20 ;k++)//wiersz
+    {
+        int czarne=0;
+        for(int w=0;w<20;w++)
+        {
+            if(obraz.obraz[w][k])
+            {
+                czarne++;
+            }
+        }
+        if(czarne%2==0 and obraz.b_wiersz[k]==1 or czarne%2!=0 and obraz.b_wiersz[k]==0)
+        {
+           return k;
+        }
+    }
+    return -1;
+}
+
+bool czy_naprawialny(const Obraz& obraz)
+{
+    int zle_w = ile_zlych_bitow_wiersz(obraz);
+    int zle_k = ile_zlych_bitow_kolumna(obraz);
+    if((zle_w==0 and zle_k==1)or(zle_w==1 and(zle_k==1 or zle_k==0)))
+    {
+        return true;
+    }
+    return false;
+
+}
+bool czy_poprawny(const Obraz& obraz)
+{
+    int zle_w = ile_zlych_bitow_wiersz(obraz);
+    int zle_k = ile_zlych_bitow_kolumna(obraz);
+    if(zle_w==0 and zle_k==0)
+    {
+        return true;
+    }
+    return false;
+}
+
+vector<string> zad4 (const vector<Obraz>& obrazy)
+{
+    vector<string> odp;
+    odp.push_back("zadanie 4:");
+    odp.push_back("obrazy naprawialne: (numer obrazu, wiesz , kolumna) ");
+    for(int i= 0;i<obrazy.size();i++)
+    {
+        if(czy_naprawialny(obrazy[i]))
+        {
+           int id_wiersz=indeks_zlego_bitu_wiersz(obrazy[i]);
+           int id_kolumna=indeks_zlego_bitu_kolumna(obrazy[i]);
+           if(id_kolumna>=0 and id_wiersz>=0)
+           {
+                odp.push_back("(" + to_string(i+1) + "," + to_string(id_wiersz+1) + "," + to_string(id_kolumna+1) + ")");
+           }
+           else if(id_kolumna>=0 and id_wiersz==-1)
+           {
+               odp.push_back("(" + to_string(i+1) + "," + "," + to_string(id_kolumna+1) + ")");
+           }
+           else
+           {
+               odp.push_back("(" + to_string(i+1) + "," + to_string(id_wiersz+1) + "," + ")");
+           }
+
+        }
+    }
+    return odp;
 }
 
 int main ()
@@ -224,8 +357,11 @@ int main ()
     odp.push_back(zad1(dane));
     vector<string> zad2_odp = zad2(dane);
     vector<string> zad3_odp = zad3(dane);
+    vector<string> zad4_odp = zad4(dane);
     odp.insert(odp.end(),zad2_odp.begin(),zad2_odp.end());
     odp.insert(odp.end(),zad3_odp.begin(),zad3_odp.end());
+    odp.insert(odp.end(),zad4_odp.begin(),zad4_odp.end());
+
 
 
     zapisz("wyniki.txt",odp);

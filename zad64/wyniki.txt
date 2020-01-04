@@ -27,3 +27,19 @@ zad3:
 liczba obrazow poprawnych: 171
 liczba obrazow naprawialnych: 14
 liczba obrazow nienaprawialnych: 15
+zadanie 4:
+obrazy naprawialne: (numer obrazu, wiesz , kolumna) 
+(14,1,15)
+(19,4,20)
+(26,,13)
+(29,2,8)
+(33,15,)
+(115,,14)
+(116,,13)
+(129,,14)
+(131,10,7)
+(143,7,15)
+(154,7,7)
+(161,,17)
+(162,,16)
+(187,,18)
