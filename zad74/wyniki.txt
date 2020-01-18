@@ -9,3 +9,5 @@ cek
 ikfLDegQXj
 jir
 yvm249t83o04
+zad3: liczba hasel z fragmentem zlozonym z czterech znakow ASCII : 39
+zad4: liczba hasel spelniajce warunki: 40
