@@ -1,0 +1,6 @@
+zad1:
+liczba okregow I cwartki: 1339
+liczba okregow II cwartki: 274
+liczba okregow III cwartki: 166
+liczba okregow IV cwartki: 218
+liczba okregow, ktore nie zawieraja sie w zadnej cwiartce: 3
