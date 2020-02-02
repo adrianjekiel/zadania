@@ -4,3 +4,36 @@ liczba okregow II cwartki: 274
 liczba okregow III cwartki: 166
 liczba okregow IV cwartki: 218
 liczba okregow, ktore nie zawieraja sie w zadnej cwiartce: 3
+zad2: liczba lustrzanych par: 158
+zad3: liczba prostopadlych par: 231
+dlugosc kojenego lancucha: 6
+dlugosc kojenego lancucha: 3
+dlugosc kojenego lancucha: 11
+dlugosc kojenego lancucha: 7
+dlugosc kojenego lancucha: 4
+dlugosc kojenego lancucha: 5
+dlugosc kojenego lancucha: 12
+dlugosc kojenego lancucha: 36
+dlugosc kojenego lancucha: 18
+dlugosc kojenego lancucha: 53
+dlugosc kojenego lancucha: 87
+dlugosc kojenego lancucha: 21
+dlugosc kojenego lancucha: 73
+dlugosc kojenego lancucha: 39
+dlugosc kojenego lancucha: 31
+dlugosc kojenego lancucha: 12
+dlugosc kojenego lancucha: 41
+dlugosc kojenego lancucha: 10
+dlugosc kojenego lancucha: 64
+dlugosc kojenego lancucha: 22
+dlugosc kojenego lancucha: 57
+dlugosc kojenego lancucha: 31
+dlugosc kojenego lancucha: 41
+dlugosc kojenego lancucha: 50
+dlugosc kojenego lancucha: 65
+dlugosc kojenego lancucha: 73
+dlugosc kojenego lancucha: 45
+dlugosc kojenego lancucha: 18
+dlugosc kojenego lancucha: 37
+dlugosc kojenego lancucha: 28
+dlugosc najdluzszego lancucha: 87
