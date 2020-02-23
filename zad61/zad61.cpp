@@ -3,6 +3,7 @@
 #include <cmath>
 #include <vector>
 #include <string>
+#include <map>
 
 using namespace std;
 
@@ -115,6 +116,7 @@ vector<string> zad2 (const vector<vector<int>>& ciagi)
     }
     return odp;
 }
+
 int wyznacz_r(const vector<int>& wyrazy)
 {
     map<int,int> roznice;
@@ -142,7 +144,14 @@ int id_bledny (const vector<int>& wyrazy)
     {
         if(r!=wyrazy[i+1]-wyrazy[i])
         {
-            id=i;
+            if(r!=wyrazy[i+2]-wyrazy[i+1])
+            {
+              id=i+1;
+            }
+            else
+            {
+              id=i;
+            }
             break;
         }
     }
