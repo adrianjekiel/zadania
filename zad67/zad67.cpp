@@ -3,6 +3,7 @@
 #include <cmath>
 #include <string>
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -150,7 +151,7 @@ vector<string> zad4()
                 licznik++;
             }
         }
-        if(licznik==6)
+        if(count(bin_f.begin(),bin_f.end(),'1')==6)
         {
             odp.push_back(bin_f);
         }
