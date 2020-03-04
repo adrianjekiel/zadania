@@ -1,0 +1,3 @@
+Zad1:
+ilosc gatunkow: 207
+najwieksza ilosc osobnikow tego samego gatunku: 20
