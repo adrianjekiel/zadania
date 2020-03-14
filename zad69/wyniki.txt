@@ -1,3 +1,10 @@
 Zad1:
 ilosc gatunkow: 207
 najwieksza ilosc osobnikow tego samego gatunku: 20
+zad2: ilosc osobnikow z dana mutacja: 8
+zad3: 
+najwieksza ilosc genow jednego osobnika:11
+najwieksza dlugosc genu zapisanego w calym pliku189
+zad4:
+Liczba genotypow odpornych: 249
+Liczba genotypow silnie odpornych: 187
