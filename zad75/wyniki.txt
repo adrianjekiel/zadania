@@ -1,0 +1,29 @@
+zad1:
+did
+desired
+destroyed
+devised
+
+zad2:
+wkqoocjqwo
+iujolqzzwr
+udwjtljuip
+tlcpgujurjqk
+yplcjdwotwr
+kqrrfwwcjtl
+mupmwjpqpg
+kqrrfwwcjtl
+wotchfqolwr
+
+zad3:
+kod szyfrujacy dla jeden itqtu : (3,7)
+kod deszyfrujacy dla jeden itqtu : (9,15)
+kod szyfrujacy dla dwa gzd : (1,3)
+kod deszyfrujacy dla dwa gzd : (1,23)
+kod szyfrujacy dla trzy zrxg : (17,14)
+kod deszyfrujacy dla trzy zrxg : (23,16)
+kod szyfrujacy dla cztery otdcpm : (7,0)
+kod deszyfrujacy dla cztery otdcpm : (15,0)
+kod szyfrujacy dla piec yfjl : (25,13)
+kod deszyfrujacy dla piec yfjl : (25,13)
+
