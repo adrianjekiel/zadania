@@ -1,0 +1,66 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std:
+
+bool czy_wystepuje_w_vectorze(const int& liczba, const vector<int>& dzielniki)
+{
+    for ( const auto dzielnik : dzielniki)
+    {
+        if (liczba == dzielnik)
+            return true;
+    }
+    return false;
+    
+    // lub zamienic kod na return count(dzielniki.begin(), dzielniki.end(), liczba);
+}
+
+bool czy_unikalne_dzielniki(const vector<int>& l_dzielniki, const vector<int>& p_dzielniki)
+{
+    for (const int l_dzielnik : l_dzielniki) // element z vectora l_dzielniki 
+    {
+        for ( const auto p_dzielnik : p_dzielniki) // elemnt z vectora p_dzielniki
+        {
+            if (l_dzielnik == p_dzielnik) // jesli znajdziemy takie same liczby w tych dwóch zbiorach to zwracamy false, jako te dwa vectory nie sa wzgledem siebie unikalne
+                return false;
+        }
+    }
+    return true; // zwracamy true bo nie znaleziono takich samych liczb w dwóch vectorach
+    //mozna zamienic na return any_of(l_dzielnik.begin(), l_dzielnik.end(), [&p_dzielnik](const int& liczba) { return count(p_dzielnik.begin(), p_dzielnik.end(), liczba);})
+}
+
+
+int main()
+{
+    vector<int> liczby; // pod ta zmienna znajduja sie liczby wczytane z pliku
+    int max_liczba=0; // poczatkowe zmienne
+
+    for (int i = 0; i < liczby.size(); i++) // idziemy po calym zbiorze, potrzebujemy tez znac miejsce sprawdzanej liczby, aby ją ominąć w dalszym sprawdzaniu
+    {
+        auto dzielniki_liczba = dzielniki(liczby[i]); // wyznaczamy dzielniki sprawdzanej liczby
+        bool unikalny_ze_wszystkimi = true; // ustawiamy flage czy dana liczba ma unikalne dzielniki względem całego zbioru
+        
+        for (int j = 0; j < i; j++) // lecimy od poczatku zbioru az do liczby ktora porownujemy
+        {
+            auto dzielniki_liczba2 = dzielniki(liczby[j]); // wyznaczamy dzielniki kolejnej liczby z ktora bedziemy sprawdzac unikalnosc
+            if (not czy_unikalne_dzielniki(dzielniki_liczba, dzielniki_liczba2)) // sprawdzamy czy dzielniki sa unikalne, jesli nie, to flaga idzie na false
+            {
+                unikalny_ze_wszystkimi = false;
+            }
+        }
+         
+        for (int j = i+1; j < liczby.size(); j++) // omijamy liczbe na pozycji "i" i zaczynami od i+1
+        {
+            auto dzielniki_liczba2 = dzielniki(liczby[j]); // wyznaczamy dzielniki kolejnej liczby z ktora bedziemy sprawdzac unikalnosc
+            if (not czy_unikalne_dzielniki(dzielniki_liczba, dzielniki_liczba2)) // sprawdzamy czy dzielniki sa unikalne, jesli nie, to flaga idzie na false
+            {
+                unikalny_ze_wszystkimi = false;
+            }
+        }
+        
+        if (unikalny_ze_wszystkimi and liczba > max_liczba) // jesli liczba ma unikalne dzielniki wzgledem calego zbioru oraz jest najwieksza na tę chwilę to przypisujemy nowe max
+        {
+            max_liczba = liczby[i];
+        }    
+    }
+}
