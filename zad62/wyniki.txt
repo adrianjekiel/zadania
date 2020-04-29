@@ -1,4 +1,7 @@
 zad1: najmniejsza liczba : 514 maksymalna liczba: 261668
 zad2: 639 6
-zad3: odp a): 160
+zad3: 
+odp a): 160
  odp b): 357
+zad4: 
+411 625

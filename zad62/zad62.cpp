@@ -113,7 +113,7 @@ string zad3(const vector<int>& osemkowe,const vector<int>& dziesietne)
     int licznik_a=0;
     int licznik_b=0;
     stringstream odp;
-    odp <<"zad3: ";
+    odp <<"zad3: \n";
     for(int i=0;i<osemkowe.size();i++)
     {
         if(osemkowe[i]==dziesietne[i])
@@ -129,9 +129,48 @@ string zad3(const vector<int>& osemkowe,const vector<int>& dziesietne)
     return odp.str();
 }
 
+string zad4(const vector<int>& dziesietne)
+{
+    stringstream odp;
+    odp << "zad4: \n";
+    int licznik1 =0;
+    int licznik2 =0;
+    vector<string> s_dzies;
+    for(auto liczba: dziesietne)
+    {
+        s_dzies.push_back(to_string(liczba));
+    }
+    for(auto wyraz:s_dzies)
+    {
+        for(auto znak:wyraz)
+        {
+            if(znak=='6')
+                licznik1++; //a done
+        }
+    }
+
+    vector<string> s_oct_dzies;
+    for(auto liczba: dziesietne)
+    {
+        stringstream oct_;
+        oct_ << oct <<liczba;
+        s_oct_dzies.push_back(oct_.str());
+    }
+    for(auto wyraz:s_oct_dzies)
+    {
+        for(auto znak:wyraz)
+        {
+            if(znak=='6')
+                licznik2++; //b done
+        }
+    }
+    odp << licznik1 <<" "<< licznik2;
+    return odp.str();
+
+}
 main()
 {
     auto dane_osemkowe = wczytaj2("liczby1.txt");
     auto dane_dziesietne = wczytaj("liczby2.txt");
-    zapisz("wyniki.txt",{zad1(dane_osemkowe),zad2(dane_dziesietne),zad3(dane_osemkowe,dane_dziesietne)});
+    zapisz("wyniki.txt",{zad1(dane_osemkowe),zad2(dane_dziesietne),zad3(dane_osemkowe,dane_dziesietne),zad4(dane_dziesietne)});
 }
