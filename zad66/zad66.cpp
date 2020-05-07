@@ -110,21 +110,30 @@ string zad3 (const vector<vector<int>>& trojki)
 {
     stringstream odp;
     odp << "zad3:\n";
-
-    for(const vector<int>& trojka : trojki)
+    for(int i=0;i<trojki.size()-1;i++)
     {
-        long long a = trojka[0];
-        long long b = trojka[1];
-        long long c = trojka[2];
-        vector<long long> temp = {a,b,c};
-        sort(temp.begin(),temp.end());
-        long long suma_kw = (pow(temp[0],2)+pow(temp[1],2))/100;
-        long long wynik = pow(temp[2],2)/100;
-        if(suma_kw==wynik)
+        long long a1 = trojki[i][0];
+        long long b1 = trojki[i][1];
+        long long c1 = trojki[i][2];
+        long long a2 = trojki[i+1][0];
+        long long b2 = trojki[i+1][1];
+        long long c2 = trojki[i+1][2];
+        vector<long long> temp1 = {a1,b1,c1};
+        vector<long long> temp2 = {a2,b2,c2};
+        sort(temp1.begin(),temp1.end());
+        sort(temp2.begin(),temp2.end());
+        long long suma_kw1 = (pow(temp1[0],2)+pow(temp1[1],2))/100;
+        long long wynik1 = pow(temp1[2],2)/100;
+        long long suma_kw2 = (pow(temp2[0],2)+pow(temp2[1],2))/100;
+        long long wynik2 = pow(temp2[2],2)/100;
+
+        if(suma_kw1==wynik1 and suma_kw2 == wynik2)
         {
-            odp << trojka[0] << " "<<trojka[1] << " "<<trojka[2] <<"\n";
+            odp << trojki[i][0] << " "<<trojki[i][1] << " "<<trojki[i][2] <<"\n";
+            odp << trojki[i+1][0] << " "<<trojki[i+1][1] << " "<<trojki[i+1][2] <<"\n";
         }
-        temp.clear();
+        temp1.clear();
+        temp2.clear();
     }
     return odp.str();
 }
