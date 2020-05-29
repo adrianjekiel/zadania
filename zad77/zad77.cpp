@@ -4,6 +4,8 @@
 #include <vector>
 #include <sstream>
 #include <cmath>
+#include <map>
+#include <iomanip>
 using namespace std;
 
 enum Tryb
@@ -42,8 +44,7 @@ string wczytaj(const string& nazwa)
 string szyfruj_s (string dane,string klucz,Tryb tryb)
 {
     int i=0;
-    cout<<dane.size();
-    while(i<dane.size()-1)
+    while(i<dane.size())
     {
         int j=0;
         while(j<klucz.size())
@@ -111,6 +112,35 @@ string zad2 (const vector<string>& dane)
     odp<<szyfruj_s(szyfr,klucz,Tryb::odszyfruj);
     return odp.str();
 }
+string zad3(const vector<string>& dane)
+{
+    double suma_licznika=0;
+    string szyfr = dane[0];
+    stringstream odp;
+    odp << "zad3: "<<endl;
+    std::map<char,int> mapa;
+    int n=0;
+    for(char& znak:szyfr)
+    {
+        if(znak>= 'A' and znak<='Z')
+        {
+            n++;
+            mapa[znak]++;
+        }
+    }
+    double mianownik = n*(n-1);
+    for(auto elem:mapa)
+    {
+        odp<<elem.first<<" = "<<elem.second<<endl;
+        suma_licznika=suma_licznika+elem.second*(elem.second-1);
+    }
+    mapa.clear();
+    double ko = suma_licznika/mianownik;
+    double d = 0.0285/(ko-0.0385);
+    odp<<"szacunkowa wartosc: "<<setprecision(4)<<d<<endl;
+    odp<<"dok³adna wartosc: "<<dane[1].size();
+    return odp.str();
+}
 void zapisz (const string& nazwa, const vector<string> odp)
 {
     string temp;
@@ -128,5 +158,5 @@ main()
 {
     string dane = wczytaj("dokad.txt");
     vector<string> dane2 = wczytaj2("szyfr.txt");
-    zapisz("wyniki.txt",{zad1(dane),zad2(dane2)});
+    zapisz("wyniki.txt",{zad1(dane),zad3(dane2)});
 }
