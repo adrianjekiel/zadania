@@ -43,6 +43,7 @@ string wczytaj(const string& nazwa)
 
 string szyfruj_s (string dane,string klucz,Tryb tryb)
 {
+    cout<<dane.size()<<endl;
     int i=0;
     while(i<dane.size())
     {
@@ -63,7 +64,6 @@ string szyfruj_s (string dane,string klucz,Tryb tryb)
                     int dana_i = dane[i]-'A';
                     int roznica = klucz[j]-'A';
                     int wynik = dana_i - roznica;
-                    cout<<dana_i<<" "<<roznica<<" "<<wynik<<endl;
                     if(wynik<0)
                     {
                         dane[i]=wynik+'Z'+1;
@@ -76,6 +76,8 @@ string szyfruj_s (string dane,string klucz,Tryb tryb)
             cout<<dane[i]<<" "<<i<<" "<<j<<endl;
             j++;
             }
+            if(i>=dane.size())
+                break;
             i++;
         }
     }
@@ -138,7 +140,7 @@ string zad3(const vector<string>& dane)
     double ko = suma_licznika/mianownik;
     double d = 0.0285/(ko-0.0385);
     odp<<"szacunkowa wartosc: "<<setprecision(4)<<d<<endl;
-    odp<<"dok³adna wartosc: "<<dane[1].size();
+    odp<<"dokladna wartosc: "<<dane[1].size();
     return odp.str();
 }
 void zapisz (const string& nazwa, const vector<string> odp)
@@ -158,5 +160,5 @@ main()
 {
     string dane = wczytaj("dokad.txt");
     vector<string> dane2 = wczytaj2("szyfr.txt");
-    zapisz("wyniki.txt",{zad1(dane),zad3(dane2)});
+    zapisz("wyniki.txt",{zad1(dane),zad2(dane2),zad3(dane2)});
 }
